@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
+Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->group(function()  {
+    Route::get('/', 'index')->name('home');
+    Route::get('/kategori', 'categories')->name('categories');
+    Route::get('/produk', 'products')->name('products');
 });
+Route::get("produk/{slug}", \App\Livewire\Frontend\ProductDetails::class)->name("productView");

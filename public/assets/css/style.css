@@ -9665,3 +9665,16 @@ div#mCSB_1_container{
 .contact-section .default-form .form-group.message-btn button{
   padding: 13.5px 31px;
 }
+
+/* Custom */
+
+.banner-style-two.custom h1 {
+  top: 60%;
+  width: 200px;
+}
+.introduction img {
+  object-fit: cover;
+  height: 200px;
+  width: 100%;
+  filter: brightness(95%);
+}

@@ -19,7 +19,7 @@ class ProductImageFactory extends Factory
     public function definition(): array
     {
         return [
-            "image" => "https://source.unsplash.com/900x800?product",
+            "image" => "https://source.unsplash.com/270x350?product",
         ];
     }
 }

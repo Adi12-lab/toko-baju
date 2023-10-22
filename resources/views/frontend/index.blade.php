@@ -1,60 +1,68 @@
   @extends('layouts.app')
   @section('main')
       <!-- banner-section -->
-      <section class="banner-style-one">
-          <div class="pattern-layer" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-          <div class="banner-carousel owl-theme owl-carousel">
-              <div class="slide-item">
-                  <div class="auto-container">
-                      <div class="content-inner">
-                          <div class="content-box">
-                              <h1>Up To <br /><span>50%</span> Discount</h1>
-                              <h3>Summer Lookbook - 2020</h3>
-                              <p>New Modern Stylist Fashionable Men's Wear Jeans Shirt.</p>
-                              <div class="btn-box">
-                                  <a href="index.html" class="theme-btn-one">Explore Now<i class="flaticon-right-1"></i></a>
-                              </div>
-                          </div>
-                          <figure class="image-box image-1"><img src="assets/images/banner/banner-image-1.png"
-                                  alt=""></figure>
-                      </div>
-                  </div>
-              </div>
-              <div class="slide-item">
-                  <div class="auto-container">
-                      <div class="content-inner">
-                          <div class="content-box">
-                              <h1>Up To <br /><span>50%</span> Discount</h1>
-                              <h3>Summer Lookbook - 2020</h3>
-                              <p>New Modern Stylist Fashionable Men's Wear Jeans Shirt.</p>
-                              <div class="btn-box">
-                                  <a href="index.html" class="theme-btn-one">Explore Now<i class="flaticon-right-1"></i></a>
-                              </div>
-                          </div>
-                          <figure class="image-box image-2"><img src="assets/images/banner/banner-image-2.png"
-                                  alt=""></figure>
-                      </div>
-                  </div>
-              </div>
-              <div class="slide-item">
-                  <div class="auto-container">
-                      <div class="content-inner">
-                          <div class="content-box">
-                              <h1>Up To <br /><span>50%</span> Discount</h1>
-                              <h3>Summer Lookbook - 2020</h3>
-                              <p>New Modern Stylist Fashionable Men's Wear Jeans Shirt.</p>
-                              <div class="btn-box">
-                                  <a href="index.html" class="theme-btn-one">Explore Now<i class="flaticon-right-1"></i></a>
-                              </div>
-                          </div>
-                          <figure class="image-box imgae-3"><img src="assets/images/banner/banner-image-3.png"
-                                  alt=""></figure>
-                      </div>
-                  </div>
-              </div>
+       <!-- banner-section -->
+      <section class="banner-style-two custom">
+        <div class="auto-container">
+          <div
+            class="content-box position-relative"
+            style="
+              background-image: url(assets/images/banner/banner.jpg);
+              height: 490px;
+              filter: brightness(80%);
+            "
+          >
+            <h1
+              class="position-absolute wow fadeInUp animated animated"
+              data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+            >
+              Sincerity. Sustainable. Inspiring.
+            </h1>
           </div>
+        </div>
       </section>
       <!-- banner-section end -->
+
+      <!--introduction -->
+
+      <section class="pb-4 introduction">
+        <div class="auto-container">
+          <div class="row align-items-center">
+            <div class="col-md-5">
+              <p
+                class="w-100"
+              >
+                Art, beauty, and sustainability can come together in the world
+                of fashion. SOOVASTUDIO is committed to creating high-quality
+                clothing without neglecting the impact it brings. Embark on a
+                more sustainable fashion journey with SOOVASTUDIO, as we
+                collectively think about our shared future.
+              </p>
+              <a
+                href="{{route('products')}}"
+                class="mt-4 theme-btn-three wow fadeInUp animated animated"
+                data-wow-delay="400ms"
+                data-wow-duration="1500ms"
+                >Shop Now<i class="flaticon-right-1"></i
+              ></a>
+            </div>
+            <div class="col-md-7 mt-3 mt-md-0">
+              <div class="row justify-content-around">
+                <div class="col-4">
+                  <img src="assets/images/resource/shop/arumala3.jpg" alt="" />
+                </div>
+                <div class="col-4">
+                  <img src="assets/images/resource/shop/arumala1.jpg" alt="" />
+                </div>
+                <div class="col-4">
+                  <img src="assets/images/resource/shop/arumala2.jpg" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
 
       <!-- topcategory-section -->
@@ -66,38 +74,16 @@
                   <span class="separator" style="background-image: url(assets/images/icons/separator-1.png);"></span>
               </div>
               <div class="row clearfix">
-                  <div class="col-lg-3 col-md-6 col-sm-12 category-block">
-                      <div class="category-block-one wow fadeInUp animated animated" data-wow-delay="00ms"
-                          data-wow-duration="1500ms">
-                          <figure class="image-box"><img src="assets/images/resource/category-1.png" alt="">
-                          </figure>
-                          <h5><a href="index.html">Women Collections</a></h5>
+                  @foreach ($categories as $category)
+                      <div class="col-lg-3 col-md-6 col-sm-12 category-block">
+                          <div class="category-block-one wow fadeInUp animated animated" data-wow-delay="00ms"
+                              data-wow-duration="1500ms">
+                              <figure class="image-box"><img src="{{ asset($category->image) }}" alt="">
+                              </figure>
+                              <h5><a href="index.html">{{ $category->name }}</a></h5>
+                          </div>
                       </div>
-                  </div>
-                  <div class="col-lg-3 col-md-6 col-sm-12 category-block">
-                      <div class="category-block-one wow fadeInUp animated animated" data-wow-delay="200ms"
-                          data-wow-duration="1500ms">
-                          <figure class="image-box"><img src="assets/images/resource/category-2.png" alt="">
-                          </figure>
-                          <h5><a href="index.html">Kids Collections</a></h5>
-                      </div>
-                  </div>
-                  <div class="col-lg-3 col-md-6 col-sm-12 category-block">
-                      <div class="category-block-one wow fadeInUp animated animated" data-wow-delay="400ms"
-                          data-wow-duration="1500ms">
-                          <figure class="image-box"><img src="assets/images/resource/category-3.png" alt="">
-                          </figure>
-                          <h5><a href="index.html">Summer Collections</a></h5>
-                      </div>
-                  </div>
-                  <div class="col-lg-3 col-md-6 col-sm-12 category-block">
-                      <div class="category-block-one wow fadeInUp animated animated" data-wow-delay="600ms"
-                          data-wow-duration="1500ms">
-                          <figure class="image-box"><img src="assets/images/resource/category-4.png" alt="">
-                          </figure>
-                          <h5><a href="index.html">Gents Collections</a></h5>
-                      </div>
-                  </div>
+                  @endforeach
               </div>
           </div>
       </section>
@@ -115,174 +101,66 @@
               <div class="sortable-masonry">
                   <div class="filters">
                       <ul class="filter-tabs filter-btns centred clearfix">
-                          <li class="active filter" data-role="button" data-filter=".best_seller">Best Seller</li>
-                          <li class="filter" data-role="button" data-filter=".new_arraivals">New Arraivals</li>
-                          <li class="filter" data-role="button" data-filter=".top_rate">Top Rate</li>
+                          <li class="active filter" data-role="button" data-filter=".new_arraivals">New Arraivals</li>
+                          <li class="filter" data-role="button" data-filter=".popular">Populer</li>
                       </ul>
                   </div>
                   <div class="items-container row clearfix">
-                      <div
-                          class="col-lg-3 col-md-6 col-sm-12 shop-block masonry-item small-column best_seller new_arraivals top_rate">
-                          <div class="shop-block-one">
-                              <div class="inner-box">
-                                  <figure class="image-box">
-                                      <img src="assets/images/resource/shop/shop-1.jpg" alt="">
-                                      <ul class="info-list clearfix">
-                                          <li><a href="index.html"><i class="flaticon-heart"></i></a></li>
-                                          <li><a href="product-details.html">Add to cart</a></li>
-                                          <li><a href="assets/images/resource/shop/shop-1.jpg" class="lightbox-image"
-                                                  data-fancybox="gallery"><i class="flaticon-search"></i></a></li>
-                                      </ul>
-                                  </figure>
-                                  <div class="lower-content">
-                                      <a href="product-details.html">Cold Crewneck Sweater</a>
-                                      <span class="price">$70.30</span>
+                      @foreach ($newProducts as $product)
+                          <div
+                              class="col-lg-3 col-md-6 col-sm-12 shop-block masonry-item small-column new_arraivals">
+                              <div class="shop-block-one">
+                                  <div class="inner-box">
+                                      <figure class="image-box">
+
+                                          <img src="{{ asset($product->productImages[0]->image) }}"
+                                              alt="{{ $product->name }}">
+                                          <span class="category green-bg">New</span>
+                                          <ul class="info-list clearfix">
+                                              <li><a href="index.html"><i class="flaticon-heart"></i></a></li>
+                                              <li><a href="product-details.html">Add to cart</a></li>
+                                              <li><a href="{{ asset($product->productImages[0]->image) }}"
+                                                      class="lightbox-image" data-fancybox="gallery"><i
+                                                          class="flaticon-search"></i></a></li>
+                                          </ul>
+                                      </figure>
+                                      <div class="lower-content">
+                                          <a href="product-details.html">{{ $product->name }}</a>
+                                          <span
+                                              class="price">{{ rupiah($product->productVariants[0]->selling_price) }}</span>
+                                      </div>
                                   </div>
                               </div>
                           </div>
-                      </div>
-                      <div class="col-lg-3 col-md-6 col-sm-12 shop-block masonry-item small-column best_seller">
-                          <div class="shop-block-one">
-                              <div class="inner-box">
-                                  <figure class="image-box">
-                                      <img src="assets/images/resource/shop/shop-2.jpg" alt="">
-                                      <span class="category green-bg">New</span>
-                                      <ul class="info-list clearfix">
-                                          <li><a href="index.html"><i class="flaticon-heart"></i></a></li>
-                                          <li><a href="product-details.html">Add to cart</a></li>
-                                          <li><a href="assets/images/resource/shop/shop-2.jpg" class="lightbox-image"
-                                                  data-fancybox="gallery"><i class="flaticon-search"></i></a></li>
-                                      </ul>
-                                  </figure>
-                                  <div class="lower-content">
-                                      <a href="product-details.html">Multi-Way Ultra Crop Top</a>
-                                      <span class="price">$50.00</span>
+                      @endforeach
+                      @foreach ($popularProducts as $product)
+                          <div
+                              class="col-lg-3 col-md-6 col-sm-12 shop-block masonry-item small-column popular">
+                              <div class="shop-block-one">
+                                  <div class="inner-box">
+                                      <figure class="image-box">
+                                          <img src="{{ asset($product->productImages[0]->image) }}"
+                                              alt="{{ $product->name }}">
+                                          <ul class="info-list clearfix">
+                                              <li><a href="index.html"><i class="flaticon-heart"></i></a></li>
+                                              <li><a href="product-details.html">Add to cart</a></li>
+                                              <li><a href="{{ asset($product->productImages[0]->image) }}"
+                                                      class="lightbox-image" data-fancybox="gallery"><i
+                                                          class="flaticon-search"></i></a></li>
+                                          </ul>
+                                      </figure>
+                                      <div class="lower-content">
+                                          <a href="product-details.html">{{ $product->name }}</a>
+                                          <span
+                                              class="price">{{ rupiah($product->productVariants[0]->selling_price) }}</span>
+                                      </div>
                                   </div>
                               </div>
                           </div>
-                      </div>
-                      <div class="col-lg-3 col-md-6 col-sm-12 shop-block masonry-item small-column best_seller top_rate">
-                          <div class="shop-block-one">
-                              <div class="inner-box">
-                                  <figure class="image-box">
-                                      <img src="assets/images/resource/shop/shop-3.jpg" alt="">
-                                      <ul class="info-list clearfix">
-                                          <li><a href="index.html"><i class="flaticon-heart"></i></a></li>
-                                          <li><a href="product-details.html">Add to cart</a></li>
-                                          <li><a href="assets/images/resource/shop/shop-3.jpg" class="lightbox-image"
-                                                  data-fancybox="gallery"><i class="flaticon-search"></i></a></li>
-                                      </ul>
-                                  </figure>
-                                  <div class="lower-content">
-                                      <a href="product-details.html">Side-Tie Tank</a>
-                                      <span class="price">$40.00</span>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div
-                          class="col-lg-3 col-md-6 col-sm-12 shop-block masonry-item small-column best_seller new_arraivals">
-                          <div class="shop-block-one">
-                              <div class="inner-box">
-                                  <figure class="image-box">
-                                      <img src="assets/images/resource/shop/shop-4.jpg" alt="">
-                                      <ul class="info-list clearfix">
-                                          <li><a href="index.html"><i class="flaticon-heart"></i></a></li>
-                                          <li><a href="product-details.html">Add to cart</a></li>
-                                          <li><a href="assets/images/resource/shop/shop-4.jpg" class="lightbox-image"
-                                                  data-fancybox="gallery"><i class="flaticon-search"></i></a></li>
-                                      </ul>
-                                  </figure>
-                                  <div class="lower-content">
-                                      <a href="product-details.html">Cold Crewneck Sweater</a>
-                                      <span class="price">$60.30</span>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-lg-3 col-md-6 col-sm-12 shop-block masonry-item small-column best_seller top_rate">
-                          <div class="shop-block-one">
-                              <div class="inner-box">
-                                  <figure class="image-box">
-                                      <img src="assets/images/resource/shop/shop-5.jpg" alt="">
-                                      <ul class="info-list clearfix">
-                                          <li><a href="index.html"><i class="flaticon-heart"></i></a></li>
-                                          <li><a href="product-details.html">Add to cart</a></li>
-                                          <li><a href="assets/images/resource/shop/shop-5.jpg" class="lightbox-image"
-                                                  data-fancybox="gallery"><i class="flaticon-search"></i></a></li>
-                                      </ul>
-                                  </figure>
-                                  <div class="lower-content">
-                                      <a href="product-details.html">Side-Tie Tank</a>
-                                      <span class="price">$35.30</span>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div
-                          class="col-lg-3 col-md-6 col-sm-12 shop-block masonry-item small-column best_seller new_arraivals">
-                          <div class="shop-block-one">
-                              <div class="inner-box">
-                                  <figure class="image-box">
-                                      <img src="assets/images/resource/shop/shop-6.jpg" alt="">
-                                      <ul class="info-list clearfix">
-                                          <li><a href="index.html"><i class="flaticon-heart"></i></a></li>
-                                          <li><a href="product-details.html">Add to cart</a></li>
-                                          <li><a href="assets/images/resource/shop/shop-6.jpg" class="lightbox-image"
-                                                  data-fancybox="gallery"><i class="flaticon-search"></i></a></li>
-                                      </ul>
-                                  </figure>
-                                  <div class="lower-content">
-                                      <a href="product-details.html">Must-Have Easy Tank</a>
-                                      <span class="price">$25.30</span>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div
-                          class="col-lg-3 col-md-6 col-sm-12 shop-block masonry-item small-column best_seller new_arraivals top_rate">
-                          <div class="shop-block-one">
-                              <div class="inner-box">
-                                  <figure class="image-box">
-                                      <img src="assets/images/resource/shop/shop-7.jpg" alt="">
-                                      <span class="category red-bg">Hot</span>
-                                      <ul class="info-list clearfix">
-                                          <li><a href="index.html"><i class="flaticon-heart"></i></a></li>
-                                          <li><a href="product-details.html">Add to cart</a></li>
-                                          <li><a href="assets/images/resource/shop/shop-7.jpg" class="lightbox-image"
-                                                  data-fancybox="gallery"><i class="flaticon-search"></i></a></li>
-                                      </ul>
-                                  </figure>
-                                  <div class="lower-content">
-                                      <a href="product-details.html">Woven Crop Cami</a>
-                                      <span class="price">$90.30</span>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div
-                          class="col-lg-3 col-md-6 col-sm-12 shop-block masonry-item small-column best_seller new_arraivals">
-                          <div class="shop-block-one">
-                              <div class="inner-box">
-                                  <figure class="image-box">
-                                      <img src="assets/images/resource/shop/shop-8.jpg" alt="">
-                                      <ul class="info-list clearfix">
-                                          <li><a href="index.html"><i class="flaticon-heart"></i></a></li>
-                                          <li><a href="product-details.html">Add to cart</a></li>
-                                          <li><a href="assets/images/resource/shop/shop-8.jpg" class="lightbox-image"
-                                                  data-fancybox="gallery"><i class="flaticon-search"></i></a></li>
-                                      </ul>
-                                  </figure>
-                                  <div class="lower-content">
-                                      <a href="product-details.html">Must-Have Easy Tank</a>
-                                      <span class="price">$20.30</span>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
+                      @endforeach
                   </div>
               </div>
-              <div class="more-btn centred"><a href="shop.html" class="theme-btn-one">View All Products<i
+              <div class="more-btn centred"><a href="{{route('products')}}" class="theme-btn-one">View All Products<i
                           class="flaticon-right-1"></i></a></div>
           </div>
       </section>
@@ -306,86 +184,6 @@
           </div>
       </section>
       <!-- cta-section end -->
-
-
-      <!-- news-section -->
-      <section class="news-section">
-          <div class="auto-container">
-              <div class="sec-title">
-                  <h2>Castro News</h2>
-                  <p>Excepteur sint occaecat cupidatat non proident sunt</p>
-                  <span class="separator" style="background-image: url(assets/images/icons/separator-1.png);"></span>
-              </div>
-              <div class="row clearfix">
-                  <div class="col-lg-4 col-md-6 col-sm-12 news-block">
-                      <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="00ms"
-                          data-wow-duration="1500ms">
-                          <div class="inner-box">
-                              <figure class="image-box"><a href="blog-details.html"><img
-                                          src="assets/images/news/news-1.jpg" alt=""></a></figure>
-                              <div class="lower-content">
-                                  <span class="post-date">May 05, 2020</span>
-                                  <h3><a href="blog-details.html">Why is a ticket to lagos so expensive?</a></h3>
-                                  <ul class="post-info clearfix">
-                                      <li><a href="index.html">by admin</a></li>
-                                      <li><a href="index.html">03 Comments</a></li>
-                                  </ul>
-                                  <p>Tempor incididunt labore dolore magna aliqua. enim minim veniam quis nostrud
-                                      exercitation laboris.</p>
-                                  <div class="link"><a href="blog-details.html">Read More<i
-                                              class="flaticon-right-1"></i></a></div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-12 news-block">
-                      <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="300ms"
-                          data-wow-duration="1500ms">
-                          <div class="inner-box">
-                              <figure class="image-box"><a href="blog-details.html"><img
-                                          src="assets/images/news/news-2.jpg" alt=""></a></figure>
-                              <div class="lower-content">
-                                  <span class="post-date">May 04, 2020</span>
-                                  <h3><a href="blog-details.html">But i must explain to you how all this mistaken
-                                          idea.</a></h3>
-                                  <ul class="post-info clearfix">
-                                      <li><a href="index.html">by admin</a></li>
-                                      <li><a href="index.html">07 Comments</a></li>
-                                  </ul>
-                                  <p>Tempor incididunt labore dolore magna aliqua. enim minim veniam quis nostrud
-                                      exercitation laboris.</p>
-                                  <div class="link"><a href="blog-details.html">Read More<i
-                                              class="flaticon-right-1"></i></a></div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-12 news-block">
-                      <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="600ms"
-                          data-wow-duration="1500ms">
-                          <div class="inner-box">
-                              <figure class="image-box"><a href="blog-details.html"><img
-                                          src="assets/images/news/news-3.jpg" alt=""></a></figure>
-                              <div class="lower-content">
-                                  <span class="post-date">May 03, 2020</span>
-                                  <h3><a href="blog-details.html">The Biebers Just Switched Up Their Couple Style</a>
-                                  </h3>
-                                  <ul class="post-info clearfix">
-                                      <li><a href="index.html">by admin</a></li>
-                                      <li><a href="index.html">05 Comments</a></li>
-                                  </ul>
-                                  <p>Tempor incididunt labore dolore magna aliqua. enim minim veniam quis nostrud
-                                      exercitation laboris.</p>
-                                  <div class="link"><a href="blog-details.html">Read More<i
-                                              class="flaticon-right-1"></i></a></div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </section>
-      <!-- news-section end -->
 
 
       <!-- service-section -->

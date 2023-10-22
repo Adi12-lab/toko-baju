@@ -26,9 +26,11 @@
     <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/jquery.fancybox.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
+    @stack('styles')
     <link href="{{ asset('assets/css/color.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet">
+    @yield('styles')
 
 </head>
 
@@ -60,8 +62,10 @@
     <script src="{{ asset('assets/js/TweenMax.min') }}.js"></script>
     <script src="{{ asset('assets/js/appear.js') }}"></script>
     <script src="{{ asset('assets/js/scrollbar.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.nice') }}-select.min.js"></script>
     <script src="{{ asset('assets/js/isotope.js') }}"></script>
+    @yield('scripts')
+    @stack('scripts')
+
 
     <!-- main-js -->
     <script src="{{ asset('assets/js/script.js') }}"></script>

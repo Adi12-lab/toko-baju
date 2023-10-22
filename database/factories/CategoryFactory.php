@@ -23,7 +23,7 @@ class CategoryFactory extends Factory
             "name" => $name,
             "slug" => Str::slug($name),
             "description" => $mergeParagraphs,
-            "image" => "https://source.unsplash.com/1000x800?life",
+            "image" => "https://source.unsplash.com/250x250?life",
             "meta_title" => $name,
             "meta_keyword" => $name,
             "meta_description" => fake()->paragraphs(2, true),

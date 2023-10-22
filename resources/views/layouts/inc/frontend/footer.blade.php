@@ -14,22 +14,6 @@
                          <div class="col-lg-4 col-md-4 col-sm-12 footer-column">
                              <div class="footer-widget links-widget">
                                  <div class="widget-title">
-                                     <h3>Category</h3>
-                                 </div>
-                                 <div class="widget-content">
-                                     <ul class="links-list clearfix">
-                                         <li><a href="index.html">Men</a></li>
-                                         <li><a href="index.html">Women</a></li>
-                                         <li><a href="index.html">Kids</a></li>
-                                         <li><a href="index.html">Accessories</a></li>
-                                         <li><a href="index.html">Shoe</a></li>
-                                     </ul>
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="col-lg-4 col-md-4 col-sm-12 footer-column">
-                             <div class="footer-widget links-widget">
-                                 <div class="widget-title">
                                      <h3>Useful Link</h3>
                                  </div>
                                  <div class="widget-content">
