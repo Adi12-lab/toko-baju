@@ -34,7 +34,7 @@
     <div class="header-lower">
         <div class="auto-container">
             <div class="outer-box">
-                <figure class="logo-box"><a href="index.html"><img src="assets/images/logo.png" alt=""></a>
+                <figure class="logo-box"><a href="{{route('home')}}"><img src="assets/images/logo.png" alt="">SOOVA STUDIO</a>
                 </figure>
                 <div class="menu-area">
                     <!--Mobile Navigation Toggler-->
@@ -48,27 +48,12 @@
                             <ul class="navigation clearfix">
                                 <li class="{{ Request::is('/') ? 'current' : '' }}"><a
                                         href="{{ route('home') }}">Home</a></li>
-                                <li class="dropdown"><a href="index.html">Pages</a>
-                                    <ul>
-                                        <li><a href="about.html">About Us</a></li>
-                                        <li><a href="service.html">Our Service</a></li>
-                                        <li><a href="team.html">Our Team</a></li>
-                                        <li><a href="testimonials.html">Testimonials</a></li>
-                                        <li><a href="error.html">404</a></li>
-                                    </ul>
-                                </li>
                                 <li class="{{ Request::is('/produk') ? 'current' : '' }}"><a
-                                        href="{{ route('products') }}">Produk</a></li>
-                                <li class="dropdown"><a href="{{ route('categories') }}">Kategori</a>
-                                    <div class="megamenu">
-                                        <div class="row clearfix">
-                                            <div class="col-lg-6 column">
-                                                <livewire:frontend.category-header />
-                                            </div>
-                                        </div>
-                                    </div>
+                                        href="{{ route('products') }}">Products</a></li>
+                                <li class="{{ Request::is('/kategori') ? 'current' : '' }}"><a
+                                        href="{{ route('categories') }}">Categories</a>
                                 </li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li class="{{ Request::is('/contact') ? 'current' : '' }}"><a href="{{route('contact')}}">Contact</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -89,8 +74,8 @@
         <div class="auto-container">
             <div class="outer-box clearfix">
                 <div class="logo-box pull-left">
-                    <figure class="logo"><a href="index.html"><img src="assets/images/small-logo.png"
-                                alt=""></a></figure>
+                    <figure class="logo"><a href="{{route('home')}}"><img src="assets/images/small-logo.png"
+                                alt="">SOOVA STUDIO</a></figure>
                 </div>
                 <div class="menu-area pull-right">
                     <nav class="main-menu clearfix">
@@ -116,9 +101,9 @@
         <div class="contact-info">
             <h4>Contact Info</h4>
             <ul>
-                <li>Chicago 12, Melborne City, USA</li>
-                <li><a href="tel:+8801682648101">+88 01682648101</a></li>
-                <li><a href="mailto:info@example.com">info@example.com</a></li>
+                <li>Porong, Sidoarjo, Jawa Timur, Indonesia.</li>
+                <li><a href="tel:+8801682648101">089519251250</a></li>
+                <li><a href="soovastudio@gmail.com">soovastudio@gmail.com</a></li>
             </ul>
         </div>
         <div class="social-links">

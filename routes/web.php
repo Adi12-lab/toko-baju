@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->group(function()  {
     Route::get('/', 'index')->name('home');
-    Route::get('/kategori', 'categories')->name('categories');
-    Route::get('/produk', 'products')->name('products');
+    Route::get('/categories', 'categories')->name('categories');
+    Route::get('/products', 'products')->name('products');
+    Route::get('/products/{slug}', 'productView')->name('product.view');
+    Route::get("/categories/{category:slug}", "categoryProducts")->name('category.products');
+    Route::get('/contact', 'contact')->name('contact');
 });
-Route::get("produk/{slug}", \App\Livewire\Frontend\ProductDetails::class)->name("productView");

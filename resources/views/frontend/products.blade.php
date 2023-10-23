@@ -22,10 +22,10 @@
                          <p>Short by</p>
                          <div class="select-box">
                              <select class="wide">
-                                 <option data-display="Popularity">Popularity</option>
-                                 <option value="1">New Collection</option>
-                                 <option value="2">Top Sell</option>
-                                 <option value="4">Top Ratted</option>
+                                 <option data-display="Popularity">Lowest Price</option>
+                                 <option value="1">Highest Price</option>
+                                 <option value="2">Ascending</option>
+                                 <option value="4">Descending</option>
                              </select>
                          </div>
                      </div>
@@ -40,16 +40,20 @@
                                      <figure class="image-box">
                                          <img src="{{ asset($product->productImages[0]->image) }}"
                                              alt="{{ $product->name }}">
+                                         @if ($product->isNew === 1)
+                                             <span class="category green-bg">New</span>
+                                         @endif
                                          <ul class="info-list clearfix">
                                              <li><a href="index.html"><i class="flaticon-heart"></i></a></li>
-                                             <li><a href="{{ route('productView', $product->slug) }}">Add to cart</a></li>
+                                             <li><a href="{{ route('product.view', $product->slug) }}">Detail Produk</a>
+                                             </li>
                                              <li><a href="{{ asset($product->productImages[0]->image) }}"
                                                      class="lightbox-image" data-fancybox="gallery"><i
                                                          class="flaticon-search"></i></a></li>
                                          </ul>
                                      </figure>
                                      <div class="lower-content">
-                                         <a href="{{ route('productView', $product->slug) }}">{{ $product->name }}</a>
+                                         <a href="{{ route('product.view', $product->slug) }}">{{ $product->name }}</a>
                                          <span
                                              class="price">{{ rupiah($product->productVariants[0]->selling_price) }}</span>
                                      </div>
@@ -69,4 +73,5 @@
  @section('scripts')
      <script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
      <script src="{{ asset('assets/js/jquery-ui.js') }}"></script>
+     <script></script>
  @endsection

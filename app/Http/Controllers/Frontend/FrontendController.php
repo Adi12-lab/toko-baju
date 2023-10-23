@@ -32,9 +32,47 @@ class FrontendController extends Controller
           return view('frontend.products', compact('products', 'startIndex', 'endIndex'));
    }
 
-    public function productView($product_slug) {
-        $product = Product::where("slug", $product_slug )->first();
-        return view("frontend.product.view", compact("product"));
+    public function productView($slug) {
+     $product = Product::with(['productImages', 'productVariants'])->firstWhere('slug', $slug);
+     $globalVariants = collect($product->productVariants);
+     $size_available = $globalVariants
+                             ->where('quantity', '>', 0) // Mengambil hanya data dengan quantity lebih dari 0
+                             ->groupBy('size') // Mengelompokkan data berdasarkan size
+                             ->map(function ($items) {
+                                 $item = $items->first(); // Mengambil salah satu item dari grup (karena original_price dan selling_price sama dalam grup yang sama)
+                                 return [
+                                     "size" => $item['size'],
+                                     "selling_price" => $item['selling_price'],
+                                     "original_price" => $item['original_price'],
+                                 ];
+                             })
+                             ->values();// Menghapus keys dari hasil grup sehingga menghasilkan indeks numerik
+
+
+     $variant_available = $globalVariants
+                                 ->where('quantity', '>', 0)
+                                 ->map(function ($item) {
+                                     return [
+                                        "size" => $item['size'],
+                                         "name" => $item["name"],
+                                         "code" => $item["code"],
+                                     ];
+                                 })
+                                 ->values();
+
+    $relatedProducts = Product::with(['productImages', 'productVariants'])->where('category_id', $product->category_id)->whereNot('id', $product->id)->get();
+    return view("frontend.productview", compact("product", 'size_available', 'variant_available', 'relatedProducts'));
+    }
+
+    public function categoryProducts(Category $category) {
+        $products = Product::with(['productImages', 'productVariants'])->where('category_id', $category->id)->paginate(12);
+        $startIndex = ($products->currentPage() - 1) * $products->perPage() + 1;
+        $endIndex = min($startIndex + $products->perPage() - 1, $products->total());
+        return view('frontend.categoryproducts', compact('products', 'startIndex', 'endIndex', 'category') );
+    }
+
+    public function contact() {
+        return view('frontend.contact');
     }
 
 }

@@ -11,7 +11,7 @@
                             data-wow-duration="1500ms">
                             <figure class="image-box"><img src="{{ asset($category->image) }}" alt="{{ $category->name }}">
                             </figure>
-                            <h5><a href="index.html">{{ $category->name }}</a></h5>
+                            <h5><a href="{{ route('category.products', $category->slug) }}">{{ $category->name }}</a></h5>
                         </div>
                     </div>
                 @endforeach
