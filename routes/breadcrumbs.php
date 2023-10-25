@@ -12,24 +12,34 @@ Breadcrumbs::for('/', function (BreadcrumbTrail $trail) {
 });
 
 // Home > produk
-Breadcrumbs::for('produk', function (BreadcrumbTrail $trail) {
+Breadcrumbs::for('product', function (BreadcrumbTrail $trail) {
     $trail->parent('/');
-    $trail->push('List Produk', route('products'));
+    $trail->push('List Product', route('products'));
 });
 
 // Home > Kategori
-Breadcrumbs::for('kategori', function (BreadcrumbTrail $trail) {
+Breadcrumbs::for('category', function (BreadcrumbTrail $trail) {
     $trail->parent('/');
-    $trail->push('List Kategori', route('categories'));
+    $trail->push('List Category', route('categories'));
+});
+
+Breadcrumbs::for('about', function (BreadcrumbTrail $trail) {
+    $trail->parent('/');
+    $trail->push('About Us', route('categories'));
+});
+
+Breadcrumbs::for('contact', function (BreadcrumbTrail $trail) {
+    $trail->parent('/');
+    $trail->push('Contact us', route('categories'));
 });
 
 Breadcrumbs::for("produkview", function(BreadcrumbTrail $trail, Product $product ) {
-    $trail->parent("produk");
+    $trail->parent("product");
     $trail->push($product->name, route("product.view", $product->slug));
 });
 
 Breadcrumbs::for("categoryproducts", function(BreadcrumbTrail $trail, Category $category ) {
-    $trail->parent("kategori");
-    $trail->push("Kategori {$category->name}", route("category.products", $category->slug));
+    $trail->parent("category");
+    $trail->push("Category {$category->name}", route("category.products", $category->slug));
 });
 

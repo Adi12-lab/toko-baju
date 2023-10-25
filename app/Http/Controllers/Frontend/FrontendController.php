@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Frontend;
 
+
 use App\Models\Product;
 use App\Models\Category;
-
+use App\Models\Message;
 use App\Http\Controllers\Controller;
-use App\Models\Quote;
+use Exception;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -75,4 +76,44 @@ class FrontendController extends Controller
         return view('frontend.contact');
     }
 
+    public function sendMessage(Request $request) {
+        try {
+
+            $payload = $request->validate([
+                "name" => "required",
+                "subject" => "required",
+                "phone" => "required|numeric",
+                "email" => "email:rfc,dns",
+                "message" => "required|string|min:10",
+            ]);
+            
+            $message = new Message;
+            $message->name = $payload["name"];
+            $message->subject = $payload["subject"];
+            $message->email = $payload["email"];
+            $message->phone = $payload["phone"];
+            $message->message = $payload["message"];
+            $message->save();
+            
+            return response()->json(
+                ["status" => "success",
+                "title" => "Success",
+                "message" => "Message successfully sended"]);
+        } catch(Exception $error) {
+            return response()->json(
+                ["status" => "error",
+                "title" => "Something went wrong",
+                "message" => $error->getMessage()
+                ]);
+        }
+    }
+
+    public function about() {
+        return view('frontend.about');
+    }
+
+    public function messages() {
+        $messages = Message::latest()->paginate(6);
+        return view('frontend.messages', compact('messages'));
+    }
 }

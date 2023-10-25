@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-
+    <meta name="csrf-token" content="{{csrf_token()}}">
     <title>SOOVA STUDIO</title>
 
     <!-- Fav Icon -->
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{asset('assets/images/favicon.ico')}}" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link
@@ -61,7 +61,6 @@
     <script src="{{ asset('assets/js/TweenMax.min') }}.js"></script>
     <script src="{{ asset('assets/js/appear.js') }}"></script>
     <script src="{{ asset('assets/js/scrollbar.js') }}"></script>
-    <script src="{{ asset('assets/js/isotope.js') }}"></script>
     @yield('scripts')
 
 

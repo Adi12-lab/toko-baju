@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 function rupiah($amount)
 {
     if ($amount === null) {
@@ -18,4 +20,8 @@ function generateRandomHexColor() {
     }
 
     return $hexColor;
+}
+
+function lastUpdate($date) {
+    return Carbon::parse($date)->diffForHumans();
 }

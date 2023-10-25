@@ -1,67 +1,55 @@
   @extends('layouts.app')
   @section('main')
       <!-- banner-section -->
-       <!-- banner-section -->
+      <!-- banner-section -->
       <section class="banner-style-two custom">
-        <div class="auto-container">
-          <div
-            class="content-box position-relative"
-            style="
+          <div class="auto-container">
+              <div class="content-box position-relative"
+                  style="
               background-image: url(assets/images/banner/banner.jpg);
               height: 490px;
               filter: brightness(80%);
-            "
-          >
-            <h1
-              class="position-absolute wow fadeInUp animated animated"
-              data-wow-delay="00ms"
-              data-wow-duration="1500ms"
-            >
-              Sincerity. Sustainable. Inspiring.
-            </h1>
+            ">
+                  <h1 class="position-absolute wow fadeInUp animated animated" data-wow-delay="00ms"
+                      data-wow-duration="1500ms">
+                      Sincerity. Sustainable. Inspiring.
+                  </h1>
+              </div>
           </div>
-        </div>
       </section>
       <!-- banner-section end -->
 
       <!--introduction -->
 
       <section class="pb-4 introduction">
-        <div class="auto-container">
-          <div class="row align-items-center">
-            <div class="col-md-5">
-              <p
-                class="w-100"
-              >
-                Art, beauty, and sustainability can come together in the world
-                of fashion. SOOVASTUDIO is committed to creating high-quality
-                clothing without neglecting the impact it brings. Embark on a
-                more sustainable fashion journey with SOOVASTUDIO, as we
-                collectively think about our shared future.
-              </p>
-              <a
-                href="{{route('products')}}"
-                class="mt-4 theme-btn-three wow fadeInUp animated animated"
-                data-wow-delay="400ms"
-                data-wow-duration="1500ms"
-                >Shop Now<i class="flaticon-right-1"></i
-              ></a>
-            </div>
-            <div class="col-md-7 mt-3 mt-md-0">
-              <div class="row justify-content-around">
-                <div class="col-4">
-                  <img src="assets/images/resource/shop/arumala3.jpg" alt="" />
-                </div>
-                <div class="col-4">
-                  <img src="assets/images/resource/shop/arumala1.jpg" alt="" />
-                </div>
-                <div class="col-4">
-                  <img src="assets/images/resource/shop/arumala2.jpg" alt="" />
-                </div>
+          <div class="auto-container">
+              <div class="row align-items-center">
+                  <div class="col-md-5">
+                      <p class="w-100">
+                          Art, beauty, and sustainability can come together in the world
+                          of fashion. SOOVASTUDIO is committed to creating high-quality
+                          clothing without neglecting the impact it brings. Embark on a
+                          more sustainable fashion journey with SOOVASTUDIO, as we
+                          collectively think about our shared future.
+                      </p>
+                      <a href="{{ route('products') }}" class="mt-4 theme-btn-three wow fadeInUp animated animated"
+                          data-wow-delay="400ms" data-wow-duration="1500ms">Shop Now<i class="flaticon-right-1"></i></a>
+                  </div>
+                  <div class="col-md-7 mt-3 mt-md-0">
+                      <div class="row justify-content-around">
+                          <div class="col-4">
+                              <img src="assets/images/resource/arumala3.jpg" alt="" />
+                          </div>
+                          <div class="col-4">
+                              <img src="assets/images/resource/arumala1.jpg" alt="" />
+                          </div>
+                          <div class="col-4">
+                              <img src="assets/images/resource/arumala2.jpg" alt="" />
+                          </div>
+                      </div>
+                  </div>
               </div>
-            </div>
           </div>
-        </div>
       </section>
 
 
@@ -107,8 +95,7 @@
                   </div>
                   <div class="items-container row clearfix">
                       @foreach ($newProducts as $product)
-                          <div
-                              class="col-lg-3 col-md-6 col-sm-12 shop-block masonry-item small-column new_arraivals">
+                          <div class="col-lg-3 col-md-6 col-sm-12 shop-block masonry-item small-column new_arraivals">
                               <div class="shop-block-one">
                                   <div class="inner-box">
                                       <figure class="image-box">
@@ -117,15 +104,15 @@
                                               alt="{{ $product->name }}">
                                           <span class="category green-bg">New</span>
                                           <ul class="info-list clearfix">
-                                              <li><a href="index.html"><i class="flaticon-heart"></i></a></li>
-                                              <li><a href="product-details.html">Add to cart</a></li>
+                                              <li><a href="#"><i class="flaticon-heart"></i></a></li>
+                                              <li><a href="{{ route('product.view', $product->slug) }}">Details</a></li>
                                               <li><a href="{{ asset($product->productImages[0]->image) }}"
                                                       class="lightbox-image" data-fancybox="gallery"><i
                                                           class="flaticon-search"></i></a></li>
                                           </ul>
                                       </figure>
                                       <div class="lower-content">
-                                          <a href="product-details.html">{{ $product->name }}</a>
+                                          <a href="{{ route('product.view', $product->slug) }}">{{ $product->name }}</a>
                                           <span
                                               class="price">{{ rupiah($product->productVariants[0]->selling_price) }}</span>
                                       </div>
@@ -134,23 +121,22 @@
                           </div>
                       @endforeach
                       @foreach ($popularProducts as $product)
-                          <div
-                              class="col-lg-3 col-md-6 col-sm-12 shop-block masonry-item small-column popular">
+                          <div class="col-lg-3 col-md-6 col-sm-12 shop-block masonry-item small-column popular">
                               <div class="shop-block-one">
                                   <div class="inner-box">
                                       <figure class="image-box">
                                           <img src="{{ asset($product->productImages[0]->image) }}"
                                               alt="{{ $product->name }}">
                                           <ul class="info-list clearfix">
-                                              <li><a href="index.html"><i class="flaticon-heart"></i></a></li>
-                                              <li><a href="product-details.html">Add to cart</a></li>
+                                              <li><a href="#"><i class="flaticon-heart"></i></a></li>
+                                              <li><a href="{{ route('product.view', $product->slug) }}">Details</a></li>
                                               <li><a href="{{ asset($product->productImages[0]->image) }}"
                                                       class="lightbox-image" data-fancybox="gallery"><i
                                                           class="flaticon-search"></i></a></li>
                                           </ul>
                                       </figure>
                                       <div class="lower-content">
-                                          <a href="product-details.html">{{ $product->name }}</a>
+                                          <a href="{{ route('product.view', $product->slug) }}">{{ $product->name }}</a>
                                           <span
                                               class="price">{{ rupiah($product->productVariants[0]->selling_price) }}</span>
                                       </div>
@@ -160,7 +146,7 @@
                       @endforeach
                   </div>
               </div>
-              <div class="more-btn centred"><a href="{{route('products')}}" class="theme-btn-one">View All Products<i
+              <div class="more-btn centred"><a href="{{ route('products') }}" class="theme-btn-one">View All Products<i
                           class="flaticon-right-1"></i></a></div>
           </div>
       </section>
@@ -169,7 +155,7 @@
 
       <!-- cta-section -->
       <section class="cta-section">
-          <div class="image-layer" style="background-image: url(assets/images/background/cta-bg-1.jpg);"></div>
+          <div class="image-layer" style="background-image: url(assets/images/background/clothes.jpg);"></div>
           <div class="auto-container">
               <div class="cta-inner centred">
                   <div class="pattern-layer">
@@ -177,9 +163,7 @@
                       <div class="pattern-2" style="background-image: url(assets/images/shape/shape-3.png);"></div>
                   </div>
                   <h2>End of Season Clearance Sale upto 50%</h2>
-                  <p>Welcome to the new range of shaving products from master barber. We have over three decades of
-                      experience in the male grooming industry</p>
-                  <a href="shop.html" class="theme-btn-one">Shop Now<i class="flaticon-right-1"></i></a>
+                  <a href="{{route('products')}}" class="theme-btn-one">Shop Now<i class="flaticon-right-1"></i></a>
               </div>
           </div>
       </section>
@@ -232,61 +216,8 @@
           </div>
       </section>
       <!-- service-section end -->
+  @endsection
 
-
-      <!-- instagram-section -->
-      <section class="instagram-section">
-          <div class="outer-container">
-              <div class="sec-title">
-                  <h2>Follow Us On Instagram</h2>
-                  <p>Excepteur sint occaecat cupidatat</p>
-                  <span class="separator" style="background-image: url(assets/images/icons/separator-1.png);"></span>
-              </div>
-              <div class="six-item-carousel owl-carousel owl-theme owl-dots-none owl-nav-none">
-                  <figure class="image-box">
-                      <img src="assets/images/resource/instagram-1.jpg" alt="">
-                      <ul class="info-list clearfix">
-                          <li><a href="index-2.html"><i class="flaticon-heart"></i>450</a></li>
-                          <li><a href="index-2.html"><i class="flaticon-commentary"></i>320</a></li>
-                      </ul>
-                  </figure>
-                  <figure class="image-box">
-                      <img src="assets/images/resource/instagram-2.jpg" alt="">
-                      <ul class="info-list clearfix">
-                          <li><a href="index-2.html"><i class="flaticon-heart"></i>450</a></li>
-                          <li><a href="index-2.html"><i class="flaticon-commentary"></i>320</a></li>
-                      </ul>
-                  </figure>
-                  <figure class="image-box">
-                      <img src="assets/images/resource/instagram-3.jpg" alt="">
-                      <ul class="info-list clearfix">
-                          <li><a href="index-2.html"><i class="flaticon-heart"></i>450</a></li>
-                          <li><a href="index-2.html"><i class="flaticon-commentary"></i>320</a></li>
-                      </ul>
-                  </figure>
-                  <figure class="image-box">
-                      <img src="assets/images/resource/instagram-4.jpg" alt="">
-                      <ul class="info-list clearfix">
-                          <li><a href="index-2.html"><i class="flaticon-heart"></i>450</a></li>
-                          <li><a href="index-2.html"><i class="flaticon-commentary"></i>320</a></li>
-                      </ul>
-                  </figure>
-                  <figure class="image-box">
-                      <img src="assets/images/resource/instagram-5.jpg" alt="">
-                      <ul class="info-list clearfix">
-                          <li><a href="index-2.html"><i class="flaticon-heart"></i>450</a></li>
-                          <li><a href="index-2.html"><i class="flaticon-commentary"></i>320</a></li>
-                      </ul>
-                  </figure>
-                  <figure class="image-box">
-                      <img src="assets/images/resource/instagram-6.jpg" alt="">
-                      <ul class="info-list clearfix">
-                          <li><a href="index-2.html"><i class="flaticon-heart"></i>450</a></li>
-                          <li><a href="index-2.html"><i class="flaticon-commentary"></i>320</a></li>
-                      </ul>
-                  </figure>
-              </div>
-          </div>
-      </section>
-      <!-- instagram-section end -->
+  @section('scripts')
+      <script src="{{ asset('assets/js/isotope.js') }}"></script>
   @endsection

@@ -5,10 +5,16 @@
              <div class="row clearfix">
                  <div class="col-lg-6 col-md-12 col-sm-12 big-column">
                      <div class="row clearfix">
-                         <div class="col-lg-4 col-md-4 col-sm-12 footer-column">
+                         <div class="col-lg-6 col-md-4 col-sm-12 footer-column">
                              <div class="footer-widget logo-widget">
-                                 <figure class="footer-logo"><a href="index.html"><img src="assets/images/footer-logo.png"
-                                             alt=""></a></figure>
+                                 <figure class="footer-logo">
+                                     <a href="{{ route('home') }}" style="color:#fff; font-weight: 700; font-size: 1.3rem;">
+                                        <img src="{{ asset('assets/images/icons/logo.png') }}" width="50" alt="soovastudio">
+                                         <span>
+                                             SOOVA STUDIO
+                                         </span>
+                                     </a>
+                                 </figure>
                              </div>
                          </div>
                          <div class="col-lg-4 col-md-4 col-sm-12 footer-column">
@@ -38,8 +44,10 @@
                                  <ul class="info-list clearfix">
                                      <li><i class="flaticon-maps-and-flags"></i>Porong, Sidoarjo, Jawa Timur, Indonesia.
                                      </li>
-                                     <li><i class="flaticon-phone-ringing"></i><a href="tel:23055873407">089519251250</a></li>
-                                     <li><i class="flaticon-email"></i><a href="mailto:soovastudio@gmail.com">soovastudio@gmail.com</a></li>
+                                     <li><i class="flaticon-phone-ringing"></i><a
+                                             href="tel:23055873407">089519251250</a></li>
+                                     <li><i class="flaticon-email"></i><a
+                                             href="mailto:soovastudio@gmail.com">soovastudio@gmail.com</a></li>
                                  </ul>
 
                              </div>

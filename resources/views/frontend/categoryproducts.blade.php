@@ -21,20 +21,21 @@
                     <div class="short-box clearfix">
                         <p>Short by</p>
                         <div class="select-box">
-                            <select class="wide">
-                                <option data-display="Popularity">Popularity</option>
-                                <option value="1">New Collection</option>
-                                <option value="2">Top Sell</option>
-                                <option value="4">Top Ratted</option>
+                            <select class="wide" id="sort-by">
+                                <option data-display="Lowest Price" value="asc:price">Lowest Price</option>
+                                <option data-display="Highest Price" value="desc:price">Highest Price</option>
+                                <option data-display="Ascending" value="asc:name">Ascending</option>
+                                <option data-display="Descending" value="desc:name">Descending</option>
                             </select>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="our-shop">
-                <div class="row clearfix">
+                <div class="row clearfix shop-row">
                     @foreach ($products as $product)
-                        <div class="col-lg-3 col-md-6 col-sm-12 shop-block">
+                        <div class="col-lg-3 col-md-6 col-sm-12 shop-block"
+                            data-price="{{ $product->productVariants[0]->selling_price }}">
                             <div class="shop-block-one">
                                 <div class="inner-box">
                                     <figure class="image-box">
@@ -69,4 +70,41 @@
 @section('scripts')
     <script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery-ui.js') }}"></script>
+    <script src="{{ asset('assets/js/isotope.js') }}"></script>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            const $shop = $('.shop-row')
+            $shop.imagesLoaded(function() {
+                $shop.isotope({
+                    itemsSelector: '.shop-block',
+                    layoutMode: 'fitRows',
+                    masonry: {
+                        columnWidth: '.masonry-item.small-column'
+                    },
+                    animationOptions: {
+                        duration: 500,
+                        easing: 'linear'
+                    },
+                    getSortData: {
+                        name: '.lower-content a',
+                        price: '[data-price] parseInt'
+                    }
+                });
+            })
+
+            $('#sort-by').change(function() {
+                let sortValue = $(this).val();
+                console.log(sortValue)
+                let sortParams = sortValue.split(':');
+                let sortDirection = sortParams[0] === 'asc' ? true : false;
+                $shop.isotope({
+                    sortBy: sortParams[1],
+                    sortAscending: sortDirection
+                });
+
+            })
+        })
+    </script>
 @endsection

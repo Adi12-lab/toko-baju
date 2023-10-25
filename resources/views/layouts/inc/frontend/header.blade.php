@@ -34,7 +34,13 @@
     <div class="header-lower">
         <div class="auto-container">
             <div class="outer-box">
-                <figure class="logo-box"><a href="{{route('home')}}"><img src="assets/images/logo.png" alt="">SOOVA STUDIO</a>
+                <figure class="logo-box">
+                    <a href="{{ route('home') }}" style="color:#222; font-weight: 700; font-size: 1.3rem;">
+                        <img src="{{ asset('assets/images/icons/logo.png') }}" width="50" alt="soovstudio">
+                        <span>
+                            SOOVA STUDIO
+                        </span>
+                    </a>
                 </figure>
                 <div class="menu-area">
                     <!--Mobile Navigation Toggler-->
@@ -53,18 +59,15 @@
                                 <li class="{{ Request::is('/kategori') ? 'current' : '' }}"><a
                                         href="{{ route('categories') }}">Categories</a>
                                 </li>
-                                <li class="{{ Request::is('/contact') ? 'current' : '' }}"><a href="{{route('contact')}}">Contact</a></li>
+                                <li class="{{ Request::is('/about') ? 'current' : '' }}"><a
+                                        href="{{ route('about') }}">About Us</a>
+                                </li>
+                                <li class="{{ Request::is('/contact') ? 'current' : '' }}"><a
+                                        href="{{ route('contact') }}">Contact</a></li>
                             </ul>
                         </div>
                     </nav>
                 </div>
-                <ul class="menu-right-content clearfix">
-                    <li>
-                        <div class="search-btn">
-                            <button type="button" class="search-toggler"><i class="flaticon-search"></i></button>
-                        </div>
-                    </li>
-                </ul>
             </div>
         </div>
     </div>
@@ -74,8 +77,14 @@
         <div class="auto-container">
             <div class="outer-box clearfix">
                 <div class="logo-box pull-left">
-                    <figure class="logo"><a href="{{route('home')}}"><img src="assets/images/small-logo.png"
-                                alt="">SOOVA STUDIO</a></figure>
+                    <figure class="logo">
+                        <a href="{{ route('home') }}" style="color:#222; font-weight: 700; font-size: 1.3rem;">
+                            <img src="{{ asset('assets/images/icons/logo.png') }}" alt="soovastudio" width="50">
+                            <span>
+                                SOOVA STUDIO
+                            </span>
+                        </a>
+                    </figure>
                 </div>
                 <div class="menu-area pull-right">
                     <nav class="main-menu clearfix">
@@ -93,8 +102,14 @@
     <div class="menu-backdrop"></div>
     <div class="close-btn"><i class="fas fa-times"></i></div>
     <nav class="menu-box">
-        <div class="nav-logo"><a href="index.html"><img src="assets/images/logo-2.png" alt=""
-                    title=""></a></div>
+        <div class="nav-logo">
+            <a href="{{route('home')}}" style="color:#fff; font-weight: 700; font-size: 1.2rem;">
+                <img src="{{ asset('assets/images/icons/logo.png') }}" width="50" alt="soovastudio" title="soovastudio">
+                <span>
+                    SOOVA STUDIO
+                </span>
+            </a>
+        </div>
         <div class="menu-outer">
             <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
         </div>

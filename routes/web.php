@@ -19,5 +19,7 @@ Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->grou
     Route::get('/products', 'products')->name('products');
     Route::get('/products/{slug}', 'productView')->name('product.view');
     Route::get("/categories/{category:slug}", "categoryProducts")->name('category.products');
+    Route::get('/about', 'about')->name('about');
     Route::get('/contact', 'contact')->name('contact');
+    Route::get('/mahmudaMessages', 'messages');
 });
